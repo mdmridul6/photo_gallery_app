@@ -16,8 +16,10 @@ class PhotoDetailScreen extends StatelessWidget {
         style: const TextStyle(
           color: Colors.white,
         ),
-      )),
-      backgroundColor: Colors.blue,
+      )
+        ,
+        backgroundColor: Colors.blue,
+      ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Center(
