@@ -10,7 +10,14 @@ class PhotoDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(photo.title)),
+      appBar: AppBar(
+          title: Text(
+        photo.title,
+        style: const TextStyle(
+          color: Colors.white,
+        ),
+      )),
+      backgroundColor: Colors.blue,
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Center(

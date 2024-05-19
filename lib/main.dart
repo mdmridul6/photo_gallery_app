@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Photo Gallery',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -27,7 +28,13 @@ class PhotoListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Photo Gallery App')),
+      appBar: AppBar(
+        title: const Text(
+          'Photo Gallery App',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.blue,
+      ),
       body: FutureBuilder<List<Photo>>(
         future: fetchPhotos(),
         builder: (context, snapshot) {
@@ -41,16 +48,14 @@ class PhotoListScreen extends StatelessWidget {
                 return Card(
                   margin: const EdgeInsets.symmetric(vertical: 8.0),
                   child: ListTile(
-
-
                     leading: Image.network(
                       photo.thumbnailUrl,
                       fit: BoxFit.cover,
                       width: 60,
                       height: 60,
                     ),
-
-                    title: Text(photo.title, maxLines: 1, overflow: TextOverflow.ellipsis),
+                    title: Text(photo.title,
+                        maxLines: 1, overflow: TextOverflow.ellipsis),
                     onTap: () {
                       Navigator.push(
                         context,
